@@ -1,0 +1,71 @@
+body {
+  background-color: #e8ecf0;
+}
+
+.title {
+  text-align: center;
+}
+
+#form {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+#form .user {
+  width: 50%;
+  margin-left: 10%;
+}
+#form .user input {
+  border-radius: 20px;
+  width: 60%;
+  padding: 30px 40px;
+  border: none;
+  outline-color: #c3bebe;
+  margin-top: 5%;
+}
+#form .user .user__phone {
+  position: relative;
+  padding: 30px 0px 30px 120px;
+  width: 55%;
+}
+#form .user .user__select {
+  position: absolute;
+  left: 12%;
+  bottom: 23.5%;
+  padding: 8px 20px;
+  border: 1px solid #ef3e42;
+  border-radius: 10px;
+  outline: none;
+}
+#form .request {
+  width: 50%;
+  margin-top: 2%;
+}
+#form .request__select {
+  padding: 15px;
+  width: 70%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+#form .request__textarea {
+  border: none;
+  outline-color: #c3bebe;
+  border-radius: 10px;
+  padding: 20px 10px;
+}
+#form .request .form__submit {
+  background-color: #f45369;
+  padding: 15px 80px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5%;
+  margin-left: 30%;
+  font-size: 18px;
+  letter-spacing: 5px;
+  transition: all 0.5s;
+}
+#form .request .form__submit:hover {
+  background-color: red;
+}/*# sourceMappingURL=home.css.map */

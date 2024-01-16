@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/home.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="title">
+      <h1>Təklif və şikayətlər</h1>
+      <p>
+        Bankımıza dair hər hansı təklif və ya müraciətiniz varsa aşağıdakı
+        formanı doldurmaqla bizə məktub göndərə bilərsiniz.
+      </p>
+    </div>
+    <form id="form">
+      <div class="user">
+        <input
+          class="user__name-inpt"
+          type="text"
+          placeholder="Ad"
+          name="name"
+        /><br />
+        <div class="message"></div>
+        <input
+          class="user__surname-inpt"
+          type="text"
+          placeholder="Soyad"
+          name="surname"
+        /><br />
+        <div class="warning"></div>
+        <input
+          class="user__fathername-inpt"
+          type="text"
+          placeholder="Ata adi"
+          name="father_name"
+        /><br />
+        <div class="error"></div>
+        <input
+          class="user__email-inpt"
+          type="text"
+          placeholder="E-mail unvani"
+          name="email"
+        />
+        <br />
+        <div class="errorMessage"></div>
+        <div class="user__phone-inpt">
+          <div>
+            <input
+              class="user__phone"
+              type="number"
+              placeholder=" Mobil nömre ____ __ __"
+              name="phone"
+            />
+            <div class="warningMessage"></div>
+            <select class="user__select">
+              <option value="0"></option>
+
+              <option value="050">050</option>
+
+              <option value="051">051</option>
+
+              <option value="055">055</option>
+
+              <option value="060">060</option>
+
+              <option value="070">070</option>
+
+              <option value="077">077</option>
+
+              <option value="099">099</option>
+
+              <option value="010">010</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="request">
+        <div>
+          <label> Müraciətin növü</label> <br />
+
+          <select class="request__select">
+            <option value="0">Secin</option>
+            <option value="Ərizə">Ərizə</option>
+            <option value="Təklif">Təklif</option>
+            <option value="Şikayət">Şikayət</option>
+          </select>
+          <div class="selectError"></div>
+        </div>
+
+        <div>
+          <label>Müraciətin qısa məzmunu</label><br />
+
+          <select id="requestSelect" class="request__select">
+            <option value="0">Secin</option>
+            <option value="1">Məhsul və xidmətlər barədə yalnış reklam</option>
+            <option value="2">
+              Müştərilərə natamam və ya yalnış məlumat verilməsi
+            </option>
+            <option value="3">Saxlanc xidməti ilə bağlı</option>
+            <option value="4">Kreditin verilməməsi ilə bağlı</option>
+            <option value="5">
+              Kreditin ödəniş qrafikinin və cərimələrin hesablanması
+            </option>
+            <option value="6">Kreditə güzəşt edilməsi</option>
+            <option value="7">Girov predmeti ilə bağlı</option>
+            <option value="8">Zaminlik ilə bağlı</option>
+            <option value="9">
+              Kart hesablarından silinmə (Kreditlə bağlı)
+            </option>
+            <option value="10">
+              Kredit müqaviləsi üzrə yaranan digər mübahisələr
+            </option>
+            <option value="11">Depozitə hesablanmış faizlərlə bağlı</option>
+            <option value="12">
+              Bankın xidmət haqları və tarifləri ilə əlaqədar
+            </option>
+            <option value="13">Ödəniş xidmətləri ilə bağlı</option>
+            <option value="14">Pul köçürməsi ilə bağlı</option>
+            <option value="15">Plastik kartlarda oğurluq halları</option>
+            <option value="16">Pul köçürməsi ilə bağlı</option>
+            <option value="17">
+              Plastik kartdan ödənişlə bağlı və digər problemlər
+            </option>
+            <option value="18">ATM ilə bağlı</option>
+            <option value="19">Müştəri xidmətinin keyfiyyəti</option>
+            <option value="20">
+              MKR-də silinməmiş kreditin qalması ilə bağlı
+            </option>
+            <option value="21">Digər</option>
+          </select>
+          <div class="selectWarning"></div>
+        </div>
+        <br />
+        <textarea
+          class="request__textarea"
+          cols="51"
+          rows="20"
+          placeholder="  Müraciətiniz"
+          name="message"
+        ></textarea
+        ><br />
+        <div class="bug"></div>
+        <button type="submit" class="form__submit">Göndər</button>
+      </div>
+    </form>
+    <p class="title">
+      Müraciətə baxılması üçün bütün bölmələr tam və ətraflı doldurulmalıdır.
+      Müraciət göndərildikdən sonra cavab qeyd etdiyiniz email ünvanına
+      göndəriləcək.
+    </p>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
