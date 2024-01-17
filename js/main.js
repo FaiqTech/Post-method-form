@@ -16,8 +16,30 @@ let bug = document.querySelector(".bug");
 let selectError = document.querySelector(".selectError");
 let selectWarning = document.querySelector(".selectWarning");
 
+// const baseUrl = "https://jsonplaceholder.typicode.com/posts";
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  // let form = this;
+  // let formData = new formData(form);
+  // console.log(formData);
+
+  // fetch(baseUrl, {
+  //   method: "POST",
+  //   body: formData, //datalari backende body vasitesile gonderrik
+  // })
+  //   .then((response) => {
+  //     console.log(response);
+  //     return response.json();
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+
+  // ----------
+
+  // ---------------------
 
   if (name.value.trim() === "") {
     message.textContent = "Ad sahəsini doldurun";
