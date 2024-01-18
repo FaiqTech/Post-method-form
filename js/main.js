@@ -16,30 +16,58 @@ let bug = document.querySelector(".bug");
 let selectError = document.querySelector(".selectError");
 let selectWarning = document.querySelector(".selectWarning");
 
-// const baseUrl = "https://jsonplaceholder.typicode.com/posts";
+const baseUrl = "https://jsonplaceholder.typicode.com/posts";
+
+function submit(e, formData) {
+  e.preventDefault();
+  let a = true;
+
+  if (a === true) {
+    function display() {
+      form.reset();
+      form.style.display = "none";
+      message.style.display = "flex";
+      setTimeout(() => {
+        form.style.display = "flex";
+        message.style.display = "none";
+      }, 2000);
+    }
+
+    fetch(baseUrl, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        console.log(response);
+        display();
+        return response.json();
+      })
+      .catch((error) => {
+        console.log(error);
+        form.style.display = "none";
+        error.style.display = "block";
+
+        function display_error() {
+          let error_message = document.querySelector(".error_message");
+          form.style.display = "none";
+          error_message.style.display = "flex";
+          console.log("bosdu");
+
+          setTimeout(() => {
+            form.style.display = "flex";
+            error_message.style.display = "none";
+          }, 2000);
+        }
+        display_error();
+      });
+  } else {
+    console.log("bosdu");
+    display_error();
+  }
+}
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-
-  // let form = this;
-  // let formData = new formData(form);
-  // console.log(formData);
-
-  // fetch(baseUrl, {
-  //   method: "POST",
-  //   body: formData, //datalari backende body vasitesile gonderrik
-  // })
-  //   .then((response) => {
-  //     console.log(response);
-  //     return response.json();
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-
-  // ----------
-
-  // ---------------------
 
   if (name.value.trim() === "") {
     message.textContent = "Ad sahəsini doldurun";
@@ -88,7 +116,7 @@ form.addEventListener("submit", function (e) {
     number.style.border = "1px solid red";
   } else {
     warningMessage.textContent = "";
-    number.border = "0.5px solid black";
+    number.style.border = "0.5px solid black";
   }
 
   if (request.value.trim() === "") {
