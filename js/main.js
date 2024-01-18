@@ -15,54 +15,58 @@ let warningMessage = document.querySelector(".warningMessage");
 let bug = document.querySelector(".bug");
 let selectError = document.querySelector(".selectError");
 let selectWarning = document.querySelector(".selectWarning");
+const succes = document.querySelector(".succes");
+const notFound = document.querySelector(".notFound");
 
-const baseUrl = "https://jsonplaceholder.typicode.com/posts";
+var a = true; // Bu değişken, gönderim (submit) işleminin yapılıp yapılmayacağını kontrol eder.
+
+const baseUrl = "https://jsonplaceholder.typicode.com/posts"; // JSONPlaceholder'a gönderilecek POST isteğinin URL'si.
 
 function submit(e, formData) {
-  e.preventDefault();
-  let a = true;
+  e.preventDefault(); // Formun varsayılan submit işlemini engeller.
 
-  if (a === true) {
+  // Eğer 'a' değişkeni true ise, yani gönderim yapılacaksa:
+  if (a == true) {
+    // display() fonksiyonu, gönderim sonrası formu sıfırlar, gizler, bir mesaj gösterir ve ardından tekrar görünür yapar.
     function display() {
-      form.reset();
-      form.style.display = "none";
-      message.style.display = "flex";
+      form.reset(); // Formu sıfırlar.
+      form.style.display = "none"; // Formu gizler.
+      succes.style.display = "block"; // Mesajı görünür yapar.
       setTimeout(() => {
-        form.style.display = "flex";
-        message.style.display = "none";
-      }, 2000);
+        form.style.display = "flex"; // Belirli bir süre sonra formu tekrar görünür yapar.
+        succes.style.display = "none"; // Mesajı gizler.
+      }, 2000); // 2000 milisaniye (2 saniye) sonra yukarıdaki işlemleri gerçekleştirir.
     }
 
+    // fetch() fonksiyonu ile belirtilen URL'ye POST isteği yapılır.
     fetch(baseUrl, {
-      method: "POST",
-      body: formData,
+      method: "POST", // POST isteği.
+      body: formData, // Form verilerini içeren FormData nesnesi gönderilir.
     })
       .then((response) => {
         console.log(response);
-        display();
-        return response.json();
+        display(); // İstek başarılı olursa display() fonksiyonu çağrılır.
+        return response.json(); // JSON verisini döndürür.
       })
       .catch((error) => {
         console.log(error);
-        form.style.display = "none";
-        error.style.display = "block";
-
-        function display_error() {
-          let error_message = document.querySelector(".error_message");
-          form.style.display = "none";
-          error_message.style.display = "flex";
-          console.log("bosdu");
-
-          setTimeout(() => {
-            form.style.display = "flex";
-            error_message.style.display = "none";
-          }, 2000);
-        }
-        display_error();
+        form.style.display = "none"; // Eğer hata olursa formu gizler.
+        notFound.style.display = "flex"; // Hata mesajını görünür yapar.
+        display_error(); // display_error() fonksiyonunu çağrılır.
       });
   } else {
-    console.log("bosdu");
-    display_error();
+    // Eğer 'a' değişkeni false ise, yani gönderim yapılmayacaksa:
+    display_error(); // display_error() fonksiyonunu çağrılır.
+    function display_error() {
+      form.style.display = "none"; // Formu gizler.
+      notFound.style.display = "flex"; // Hata mesajını görünür yapar.
+
+      // Belirli bir süre sonra formu tekrar görünür yapar ve hata mesajını gizler.
+      setTimeout(() => {
+        form.style.display = "flex";
+        notFound.style.display = "none";
+      }, 2000);
+    }
   }
 }
 
@@ -145,4 +149,7 @@ form.addEventListener("submit", function (e) {
     selectWarning.textContent = "";
     requestSelect.style.border = "0.5px solid black";
   }
+  let form = this;
+  let formData = new FormData(form);
+  submit(e, formData);
 });

@@ -6,6 +6,34 @@ body {
   text-align: center;
 }
 
+.succes {
+  display: none;
+}
+.succes__icon {
+  width: 35%;
+  height: 35%;
+  margin-left: 30%;
+  background-color: transparent;
+}
+.succes .title {
+  color: #17ac12;
+  font-size: 60px;
+}
+
+.notFound {
+  display: none;
+}
+.notFound__icon {
+  width: 40%;
+  height: 30%;
+  margin-left: 30%;
+  background-color: transparent;
+}
+.notFound .title {
+  color: red;
+  font-size: 40px;
+}
+
 #form {
   width: 100%;
   display: flex;
@@ -30,7 +58,7 @@ body {
 #form .user .user__select {
   position: absolute;
   left: 4%;
-  bottom: 23.5%;
+  bottom: 17px;
   padding: 8px 20px;
   border: 1px solid #ef3e42;
   border-radius: 10px;
