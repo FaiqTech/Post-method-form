@@ -6,7 +6,7 @@ let email = document.querySelector(".user__email-inpt");
 let number = document.querySelector(".user__phone");
 let selectElement = document.querySelector(".request__select");
 let requestSelect = document.querySelector("#requestSelect");
-let request = document.querySelector(".request__textarea");
+let requestt = document.querySelector(".request__textarea");
 let message = document.querySelector(".message");
 let warning = document.querySelector(".warning");
 let error = document.querySelector(".error");
@@ -18,7 +18,7 @@ let selectWarning = document.querySelector(".selectWarning");
 const succes = document.querySelector(".succes");
 const notFound = document.querySelector(".notFound");
 
-var a = true; // Bu değişken, gönderim (submit) işleminin yapılıp yapılmayacağını kontrol eder.
+var a = false; // Bu değişken, gönderim (submit) işleminin yapılıp yapılmayacağını kontrol eder.
 
 const baseUrl = "https://jsonplaceholder.typicode.com/posts"; // JSONPlaceholder'a gönderilecek POST isteğinin URL'si.
 
@@ -77,40 +77,49 @@ form.addEventListener("submit", function (e) {
     message.textContent = "Ad sahəsini doldurun";
     message.style.color = "red";
     name.style.border = "1px solid red";
+    a = false;
   } else {
     message.textContent = "";
     name.style.border = "0.5px solid black";
+    a = true;
   }
 
   if (surname.value.trim() === "") {
     warning.textContent = "Soyad sahəsini doldurun";
     warning.style.color = "red";
     surname.style.border = "1px solid red";
+    a = false;
   } else {
     warning.textContent = "";
     surname.style.border = "0.5px solid black";
+    a = true;
   }
 
   if (fathername.value.trim() === "") {
     error.textContent = "Ata adı sahəsini doldurun";
     error.style.color = "red";
     fathername.style.border = "1px solid red";
+    a = false;
   } else {
     error.textContent = "";
     fathername.style.border = "0.5px solid black";
+    a = true;
   }
 
   if (email.value.trim() === "") {
     errorMessage.textContent = "E-mail ünvanı sahəsini doldurun";
     errorMessage.style.color = "red";
     email.style.border = "1px solid red";
+    a = false;
   } else {
     errorMessage.textContent = "";
     email.style.border = "0.5px solid black";
+    a = true;
     if (!email.value.includes("@")) {
       errorMessage.textContent = "@ işarəsi daxil edin";
       errorMessage.style.color = "red";
       email.style.border = "1px solid red";
+      a = false;
     }
   }
 
@@ -118,36 +127,42 @@ form.addEventListener("submit", function (e) {
     warningMessage.textContent = "Mobil nömrə sahəsini doldurun";
     warningMessage.style.color = "red";
     number.style.border = "1px solid red";
+    a = false;
   } else {
     warningMessage.textContent = "";
     number.style.border = "0.5px solid black";
-  }
-
-  if (request.value.trim() === "") {
-    bug.textContent = "Müraciət sahəsini doldurun";
-    bug.style.color = "red";
-    request.style.border = "1px solid red";
-  } else {
-    bug.textContent = "";
-    request.style.border = "0.5px solid black";
+    a = true;
   }
 
   if (selectElement.value === "0") {
     selectError.textContent = "Müraciət növünü seçin";
     selectError.style.color = "red";
     selectElement.style.border = "1px solid red";
+    a = false;
   } else {
     selectError.textContent = "";
     selectElement.style.border = "0.5px solid black";
+    a = true;
   }
 
   if (requestSelect.value === "0") {
     selectWarning.textContent = "Müraciətin qısa məzmununu seçin";
     selectWarning.style.color = "red";
     requestSelect.style.border = "1px solid red";
+    a = false;
   } else {
     selectWarning.textContent = "";
     requestSelect.style.border = "0.5px solid black";
+    a = true;
+  }
+  if (requestt.value.trim() === "") {
+    bug.textContent = "Müraciət sahəsini doldurun";
+    bug.style.color = "red";
+    requestt.style.border = "1px solid red";
+    a = false;
+  } else {
+    bug.textContent = "";
+    requestt.style.border = "0.5px solid black";
   }
   let form = this;
   let formData = new FormData(form);
